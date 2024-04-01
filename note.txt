@@ -1,0 +1,17 @@
+MERN -> MongoDB, Express, React, Node (four key technology that makes easier and faster deployment of full stack web application)
+MongoDB -> NoSQL database
+Express -> Node.js web framework
+React -> javascript library for building user interfaces
+Node -> javascript runtime envorinment
+
+1. Create folder -> GoFood
+open terminal -> cd GoFood
+npx create-react-app mernapp
+cd mernapp
+npm start
+delete unnecessary files & code -> logo.svg
+insert bootstrap link in index.html above title
+create folder components,screens inside src folder 
+create file inside components -> Navbar.js, Footer.js
+create file inside screens -> Home.js
+Navbar.js -> paste the code of navbar from bootdtrap 5 website, replace class by className(ctlr+shift+L)
