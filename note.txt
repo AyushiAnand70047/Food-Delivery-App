@@ -15,3 +15,29 @@ create folder components,screens inside src folder
 create file inside components -> Navbar.js, Footer.js
 create file inside screens -> Home.js
 Navbar.js -> paste the code of navbar from bootdtrap 5 website, replace class by className(ctlr+shift+L)
+
+React Router DOM : 
+-> run command (npm i react-router-dom) in mernapp terminal
+-> import {} from "react-router-dom" in App.js
+-> wrap parent div with Router inside App.js
+-> go to Navbar.js import {Link} from "react-router-dom"
+-> replace anchor tag with Link in Navbar.js As because of anchor tag page is reloading
+-> now page is not reloading
+
+inside screens make file Login.js then add route of Login.js in App.js
+
+now do some changes in navbar to appear it beautiful.
+
+copy the code of card from bootdtrap and paste it inside new component Card.js
+modify the code of card to appear it beautiful
+
+copy the code of footer from bootstrap website and paste it in Footer.js and do necessary modification
+
+copy the code of crousel from bootstrap 5 and paste it new component Crousel.js and do necessary modification
+
+call Crousel component in Home.js before Card and after Navbar
+
+inside terminal mernapp -> npm i bootstrap-dark-5 bootstrap react-bootstrap
+now import bootstrap in App.js
+
+copy the code of search bar from bootstrap website and add it in Crousel.js
