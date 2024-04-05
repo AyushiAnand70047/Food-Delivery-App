@@ -6,7 +6,7 @@ export default function Crousel() {
       <div
         id="carouselExampleFade"
         className="carousel slide carousel-fade"
-        data-bs-ride="carousel" style={{objectFit:"contain !important"}}
+        data-bs-ride="carousel"
       >
         <div className="carousel-inner" id="carousel">
           <div className="carousel-caption" style={{zIndex:"10"}}>

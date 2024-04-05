@@ -14,4 +14,5 @@ code {
 
 #carousel{
   max-height: 500px;
+  object-fit: contain !important;
 }

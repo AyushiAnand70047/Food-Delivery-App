@@ -41,3 +41,18 @@ inside terminal mernapp -> npm i bootstrap-dark-5 bootstrap react-bootstrap
 now import bootstrap in App.js
 
 copy the code of search bar from bootstrap website and add it in Crousel.js
+
+Download MongoDB and add path to environment variables
+
+Using MongoDB Atlas -> first singin with goggle
+-> give name of project goFood
+-> build a database, select free version
+-> Username: goFood, Password: goFood
+-> go to network access and add IP address select allow access from anywhere
+-> go to database click on cluster then go to collection and create database
+-> Database name: goFoodMERN, collection name: sample
+-> cluster - cmd line tools and copy data import content
+-> first type mongod in cmd then minimise it and open new cmd 
+mongoimport --uri mongodb+srv://goFood:goFood@cluster0.yw1q9gw.mongodb.net/goFoodMERN --collection food_items --jsonArray --file "D:\github repository clone\Food-Delivery-App\GoFood\mernapp\foodData2.json"
+-> now food_items added to cluster in mongodb atlas
+-> similarly import foodCategory.json file
