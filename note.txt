@@ -56,3 +56,16 @@ Using MongoDB Atlas -> first singin with goggle
 mongoimport --uri mongodb+srv://goFood:goFood@cluster0.yw1q9gw.mongodb.net/goFoodMERN --collection food_items --jsonArray --file "D:\github repository clone\Food-Delivery-App\GoFood\mernapp\foodData2.json"
 -> now food_items added to cluster in mongodb atlas
 -> similarly import foodCategory.json file
+
+Create folder backend inside mernapp
+-> cd backend then run command (npm init) then (npm install express nodemon mongoose)
+-> create file index.js inside backend
+-> copy the code of express js from its website and paste it in index.js file
+-> run command (nodemon index.js) inside backend 
+(on writing nodemon then if we do any changes in code its get deploy on server without restarting the server)
+
+connecting mongodb with backend
+-> create file db.js inside backend
+-> require mongoose in db.js
+-> go to atlas then connect then connect your application copy code and then paste that code inside db.js in variable mongoURI
+-> do necessary changes in code
