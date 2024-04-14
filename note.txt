@@ -69,3 +69,7 @@ connecting mongodb with backend
 -> require mongoose in db.js
 -> go to atlas then connect then connect your application copy code and then paste that code inside db.js in variable mongoURI
 -> do necessary changes in code
+
+fetching data from mongodb database to backend
+-> in db.js in mongoURI after .net/ and before ? add database name (goFoodMERN)
+-> now do necessary changes in code for fetching data 
