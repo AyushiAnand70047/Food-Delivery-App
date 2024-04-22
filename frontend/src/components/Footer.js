@@ -10,11 +10,11 @@ export default function Footer() {
         <span className="text-muted">© 2022 <i>GoFood</i>, Inc</span>
       </div>
   
-      <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
+      {/* <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
         <li className="ms-3"><a className="text-muted" href="/"><svg className="bi" width="24" height="24"><use ></use></svg></a></li>
         <li className="ms-3"><a className="text-muted" href="/"><svg className="bi" width="24" height="24"><use ></use></svg></a></li>
         <li className="ms-3"><a className="text-muted" href="/"><svg className="bi" width="24" height="24"><use></use></svg></a></li>
-      </ul>
+      </ul> */}
     </footer>
   </div>
   </div>

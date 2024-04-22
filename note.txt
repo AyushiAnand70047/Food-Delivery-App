@@ -1,75 +1,116 @@
-MERN -> MongoDB, Express, React, Node (four key technology that makes easier and faster deployment of full stack web application)
-MongoDB -> NoSQL database
-Express -> Node.js web framework
-React -> javascript library for building user interfaces
-Node -> javascript runtime envorinment
+-> create folder FOOD-DELIVERY-APP
+-> cd FOOD-DELIVERY-APP
 
-1. Create folder -> GoFood
-open terminal -> cd GoFood
-npx create-react-app mernapp
-cd mernapp
-npm start
-delete unnecessary files & code -> logo.svg
-insert bootstrap link in index.html above title
-create folder components,screens inside src folder 
-create file inside components -> Navbar.js, Footer.js
-create file inside screens -> Home.js
-Navbar.js -> paste the code of navbar from bootdtrap 5 website, replace class by className(ctlr+shift+L)
-
-React Router DOM : 
--> run command (npm i react-router-dom) in mernapp terminal
+Frontend:
+1. Creating react app
+-> npx create-react-app frontend
+-> delete unnecessary code and files -> logo.svg
+2. Linking bootstrap to our app for styling
+-> using bootstrap for styling
+   inserted bootstrap link (<link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css" rel="stylesheet">)
+   inside frontend -> public -> index.html (inserted bootstrap link in head section above title)
+   for adding bootstrap we have to write className as class is a reserve keyword in javascript
+-> npm i bootstrap-dark-5 boostrap
+   import boostrap in App.js
+3. creating files for components and pages:
+-> inside src create folder components(reusable piece of code) then create file Navbar.js, Footer.js 
+-> inside src create folder screens(contains pages) then create file Home.js, Login.js
+-> import Navbar and Footer inside Home.js then in return statement first call Navbar then home page code then call Footer
+4. importing Router, Routes, Route from react-router-dom: (As react is single page application)
+-> run command (npm i react-router-dom) in frontend terminal
 -> import {} from "react-router-dom" in App.js
--> wrap parent div with Router inside App.js
--> go to Navbar.js import {Link} from "react-router-dom"
--> replace anchor tag with Link in Navbar.js As because of anchor tag page is reloading
--> now page is not reloading
+-> wrap parent div with Router inside App.js then inside div everything is wrap with Routes then inside Routes we need to use Route and provide exact path for elements to render and provide element like Home page, Login page, Signup page, MyOrder page
+-> go to Navbar.js import {Link, useNavigate} from "react-router-dom" then use Link as a tag for navigating to other page instead of anchor tag as using this page will not reload while using anchor tag page will reload
+5. using online font family
+-> insert the link of web font in index.html inside head below bootstrap link
+-> inside index.css add font-family and mark it as important
+6. Create file Card.js inside components
+-> write the code for the Card containing food - image, name, quantity, size, price and option to Add to Cart
+-> now call the card inside Home.js before Footer
+7. code for Footer.js
+-> take the code of Footer from bootstrap 5 website and do necessary changes in it
+8. create file Carousel.js inside components
+-> take the code of Carousel from bootstrap 5 website and do necessary changes like change class to className, close all image tag (<img/>) and image source
+-> Add search bar, copy search bar code from boostrap and do necessary changes (add z-index property to make search bar visible)
+-> add Carousel component to Home.js after Navbar component
 
-inside screens make file Login.js then add route of Login.js in App.js
+Backend:
+1. sign in to mongodb atlas
+-> create project goFood then create database test
+2. make file goFoodMERN.food_items.json and goFoodMERN.foodCategory.json 
+-> upload these two files to test database using command line
+-> go to goFood then click cmd Line tools and copy the code of data import and export 
+-> make changes to the url like Password, database name, collection name and add file path in double quotes and file type as json array
+-> now go to test database collection you will see the files
+3. create folder backend
+-> cd backend then npm init 
+-> npm install express nodemon mongoose
+-> go to package.json and add script start as nodemon index.js
+4.create file index.js
+-> create server using express 
+5. create file db.js
+-> write code for connecting our application with database export it and then import in index.js
+6. create folder models
+-> create file User.js inside models
+-> inside User.js create schema for User (new User signup)
+7. create folder Routes 
+-> create file Auth.js and require it inside index.js
+-> inside Auth.js fetch new user detail form request body
+-> apply validation on user detail
 
-now do some changes in navbar to appear it beautiful.
+Frontend:
+1. go to src/screens
+-> create file Signup.js and Login.js
+-> add Navbar component for both pages
+-> go to components/Navbar.js and add link of Signup page
+-> copy the code of signup form from boostrap 5 and paste it inside Signup.js and do necessary changes
+-> go to App.js and provide Route for Signup page
+-> in Signup.js create a function handleSubmit for form, handleClick for submit button and onChange for every input field
+-> after submit button add a button for existing user and link it with login page
+-> complete code for function handleSubmit
+-> complete code for function onChange
+-> complete code for function handleClick
+-> Check user is not existing then storing data of new user inside collection users and navigating to login page else alert for entering valid credentials 
+-> write code for Login form inside screens/Login.js
+-> handleSubmit if user credentials is matching with any users data persent inside users collection than navigate to home page else send alert for entering valid credentials
 
-copy the code of card from bootdtrap and paste it inside new component Card.js
-modify the code of card to appear it beautiful
+Backend:
+1. storing Password securely
+-> using bcrypt in Routes/Auth.js
+2. fetch data
+-> inside db.js write code to fetch data food_items and categories
 
-copy the code of footer from bootstrap website and paste it in Footer.js and do necessary modification
+Frontend:
+1. display data as Card
+-> go to Home.js loadData and provide path for foodData and display it after Carousel
+2. Navbar logic
+-> go to Navbar.js anf give option of Logout and  cart for loged in user else display Login or Signup button
+-> write code for handleLogout (navigate user to login page)
+3. Add food items to cart
+-> go to Card.js and add button Add to Cart
+-> create file ContextReducer.js
+-> inside Home.js import ContextReducer
+-> go to Card.js and dispatch the user action
+4. create file Cart.js inside screens
+-> display the items which is added to Cart
+-> on clicking chekout save the data to database
 
-copy the code of crousel from bootstrap 5 and paste it new component Crousel.js and do necessary modification
+Backend:
+1. clicking Checkout button in Cart page
+-> go to models and create file Orders.js 
+-> define schema for the orders
+-> store all order data inside collection orders
 
-call Crousel component in Home.js before Card and after Navbar
+Backend:
+1. Orders data
+-> write code in Auth.js to fetch Order data for specific email id 
 
-inside terminal mernapp -> npm i bootstrap-dark-5 bootstrap react-bootstrap
-now import bootstrap in App.js
+Frontend:
+1. MyOrder.js
+-> add Navbar and Footer components inside MyOrder.js
+-> between Navbar and Footer, write code for displaying Order data 
+-> add Route for MyOrder inside App.js
 
-copy the code of search bar from bootstrap website and add it in Crousel.js
-
-Download MongoDB and add path to environment variables
-
-Using MongoDB Atlas -> first singin with goggle
--> give name of project goFood
--> build a database, select free version
--> Username: goFood, Password: goFood
--> go to network access and add IP address select allow access from anywhere
--> go to database click on cluster then go to collection and create database
--> Database name: goFoodMERN, collection name: sample
--> cluster - cmd line tools and copy data import content
--> first type mongod in cmd then minimise it and open new cmd 
-mongoimport --uri mongodb+srv://goFood:goFood@cluster0.yw1q9gw.mongodb.net/goFoodMERN --collection food_items --jsonArray --file "D:\github repository clone\Food-Delivery-App\GoFood\mernapp\foodData2.json"
--> now food_items added to cluster in mongodb atlas
--> similarly import foodCategory.json file
-
-Create folder backend inside mernapp
--> cd backend then run command (npm init) then (npm install express nodemon mongoose)
--> create file index.js inside backend
--> copy the code of express js from its website and paste it in index.js file
--> run command (nodemon index.js) inside backend 
-(on writing nodemon then if we do any changes in code its get deploy on server without restarting the server)
-
-connecting mongodb with backend
--> create file db.js inside backend
--> require mongoose in db.js
--> go to atlas then connect then connect your application copy code and then paste that code inside db.js in variable mongoURI
--> do necessary changes in code
-
-fetching data from mongodb database to backend
--> in db.js in mongoURI after .net/ and before ? add database name (goFoodMERN)
--> now do necessary changes in code for fetching data 
+To Run:
+-> cd frontend then npm start
+-> cd backend then npm start
